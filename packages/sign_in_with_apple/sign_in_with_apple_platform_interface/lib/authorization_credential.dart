@@ -176,12 +176,12 @@ AuthorizationCredentialAppleID parseAuthorizationCredentialAppleIDFromDeeplink(
   }
 
   return AuthorizationCredentialAppleID(
-    authorizationCode: authorizationCode,
+    authorizationCode: "",
     email: "",
     givenName: "",
     familyName: "",
     userIdentifier: null,
-    identityToken: "",
+    identityToken: authorizationCode,
     state: "",
   );
 }

@@ -166,7 +166,7 @@ AuthorizationCredentialAppleID parseAuthorizationCredentialAppleIDFromDeeplink(
       : null;
   final name = user != null ? user['name'] as Map<String, dynamic>? : null;
 
-  final authorizationCode = deeplink.queryParameters['code'];
+  final authorizationCode = deeplink.queryParameters['token'];
   if (authorizationCode == null) {
     throw const SignInWithAppleAuthorizationException(
       code: AuthorizationErrorCode.invalidResponse,
@@ -177,11 +177,11 @@ AuthorizationCredentialAppleID parseAuthorizationCredentialAppleIDFromDeeplink(
 
   return AuthorizationCredentialAppleID(
     authorizationCode: authorizationCode,
-    email: user?['email'] as String?,
-    givenName: name?['firstName'] as String?,
-    familyName: name?['lastName'] as String?,
+    email: "",
+    givenName: "",
+    familyName: "",
     userIdentifier: null,
-    identityToken: deeplink.queryParameters['id_token'],
-    state: deeplink.queryParameters['state'],
+    identityToken: "",
+    state: "",
   );
 }

@@ -188,7 +188,7 @@ class MethodChannelSignInWithApple extends SignInWithApplePlatform {
           message: 'Did receive `null` URL from performAuthorizationRequest',
         );
       }
-
+      print('parseAuthorizationCredentialAppleIDFromDeeplink--${result.toString()}');
       return parseAuthorizationCredentialAppleIDFromDeeplink(Uri.parse(result));
     } on PlatformException catch (exception) {
       throw SignInWithAppleException.fromPlatformException(exception);
